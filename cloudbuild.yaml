@@ -1,0 +1,13 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/wahyu-data/ai-model-vertex', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/wahyu-data/ai-model-vertex']
+# Deploy container image to Cloud Run
+# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#  entrypoint: gcloud
+#  args: ['run', 'deploy', 'ai-model-vertex', '--image', 'gcr.io/wahyu-data/ai-model-vertex', '--region', 'us-central1']
+images:
+- gcr.io/wahyu-data/ai-model-vertex
